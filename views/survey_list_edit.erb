@@ -1,0 +1,31 @@
+<br>
+<h3>Surveys (click on a survey to take it!)</h3>
+
+
+<% if @surveys.any? %>
+  <%= @surveys %>
+<% else %>
+  <%= "Ooops! There are no surveys yet" %>
+  <br>
+  <%= "Create one <a href='/survey/<%=survey.id %>/edit'> here.</a>" %>
+<% end %>
+
+<% if @surveys.any? %>
+  <% @surveys.each do |x| %>
+    <form action="/divisions/<%= divi.id %>/delete" method="post">
+      <p>
+        <input name="_method" type="hidden" value="delete"/>
+        <a href="/divisions/<%= divi.id %>">
+          <button type="button" class="btn btn-info" style="width:200px;"><%= divi.description %></button>
+        </a>
+        <a href="/divisions/<%= divi.id %>/edit"><button type="button" class="btn btn-warning">Edit</button></a>
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </p>
+    </form>
+  <% end %>
+<% end %>
+
+<br><br>
+
+
+<a href="/"><button type="button" class="btn btn-secondary">Return Home</button></a>

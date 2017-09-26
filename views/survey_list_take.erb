@@ -1,0 +1,16 @@
+<br>
+<h3>Surveys (click on a survey to take it!)</h3>
+
+
+<% if @surveys.any? %>
+  <%= @surveys %>
+<% else %>
+  <%= "Ooops! There are no surveys yet" %>
+  <%= "Create one <a href='/survey/edit'> here.</a>" %>
+<% end %>
+
+<br><br>
+
+<form>
+  <a href="/"><button type="button" class="btn btn-secondary">Return Home</button></a>
+</form>
